@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /*
+    Burada tanımlamış olduğumuz api katmanında, projemizi dış dünyaya (mobil uygulama, farklı bir web uygulaması, masaüstü uygulaması) açtığımız katmandır.
     @RestController, sınıfın dışardan gelen requestleri yakalaması gereken bir sınıf olduğu belirtilir.
     ResponseBody varsayılan olarak tanımlanır.(Eldeki veriyi JSON olarak serialize edip geri gönderirler.)
-    @Controller anotasyonundan farklı olarak datanın kendisini JSON veya XML formatı ile direkt olarak sunabiliyor.
+    @Controller anotasyonundan farklı olarak datanın kendisini JSON veya XML formatı ile direkt olarak sunabiliyor. Bu da farklı uygulamalarında kullanabileceği veriyi döndürür.
     @RequestMapping, request yapılacak olan URL adresinin path bilgisini tanımlamaya yarar. Bir URL'den istek geldiği zaman,
        istek atılan URL'in path bilgisi ile RequestMapping içerisinde tanımlanan path bilgisi uyuşuyorsa,
        @RequestMapping tanımlaması yapılan fonksiyon çalışır..

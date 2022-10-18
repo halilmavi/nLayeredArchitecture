@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 /*
+    ProductManager, projede kullanacak olduğumuz operasyonların gövdesini doldurduğumuz, iş kuralları tanımladığımız sınıfımız. IProductService interface'ni implemente ediyor..
     @Service anotastonu ile springe bu sınıfın bir iş sınıfı olduğunu tanımlama işlemi yapıyoruz.
     @Autowired anotasyonu, Constructor, değişken ya da setter metodlar için dependency injection işlemi gerçekleştirir.
      Bu iş sınıfımızda, veritabanı tablolarını ifade eden somut sınıfımıza direkt erişmek yerine veritabanı sınıfınının referans adresini
@@ -18,8 +19,13 @@ import java.util.List;
 
 @Service
 public class ProductManager implements IProductService {
-    private IProductDao productDao;
 
+    /*
+     Bir bağımlılığı constructor üzerinden inject etme işlemi yaptık. Yani direkt somut sınıfına erişmesini istemediğimiz sınıfların soyut sınıfını constructor
+     üzerinden parametre olarak geçiyoruz. ProductManager sınıfından bir instance oluşturulduğunda direkt parametre olarak, IProductDao soyut sınıfına karşılık gelen
+     somut bir sınıftan instance oluşturup biz döndürüyor. Burada instance oluşturma işlemini @Autowired anotasyonu yapıyor.
+    */
+    private IProductDao productDao;
     @Autowired
     public ProductManager(IProductDao productDao) {
         super();
