@@ -23,7 +23,7 @@ public class ProductManager implements IProductService {
     /*
      Bir bağımlılığı constructor üzerinden inject etme işlemi yaptık. Yani direkt somut sınıfına erişmesini istemediğimiz sınıfların soyut sınıfını constructor
      üzerinden parametre olarak geçiyoruz. ProductManager sınıfından bir instance oluşturulduğunda direkt parametre olarak, IProductDao soyut sınıfına karşılık gelen
-     somut bir sınıftan instance oluşturup biz döndürüyor. Burada instance oluşturma işlemini @Autowired anotasyonu yapıyor.
+     somut bir sınıftan instance oluşturup bize döndürüyor. Burada instance oluşturma işlemini @Autowired anotasyonu yapıyor.
     */
     private IProductDao productDao;
     @Autowired
