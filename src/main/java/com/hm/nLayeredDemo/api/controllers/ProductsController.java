@@ -1,11 +1,11 @@
 package com.hm.nLayeredDemo.api.controllers;
 
 import com.hm.nLayeredDemo.business.abstracts.IProductService;
+import com.hm.nLayeredDemo.core.utilities.results.DataResult;
+import com.hm.nLayeredDemo.core.utilities.results.Result;
 import com.hm.nLayeredDemo.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,8 +30,14 @@ public class ProductsController {
     }
 
     @GetMapping("/getall")
-    public List<Product> getAll() {
+    public DataResult<List<Product>> getAll() {
         return this.productService.getAll();
+    }
+
+    //@RequestBody anotasyonu ile client' ın göndereceği datayı json formatına döndürerek veritabanı sınıfımızdaki nesnelerle eşleşme işlemi yapıyor.
+    @PostMapping("/add")
+    public Result add(@RequestBody Product product){
+        return this.productService.add(product);
     }
 
 }
