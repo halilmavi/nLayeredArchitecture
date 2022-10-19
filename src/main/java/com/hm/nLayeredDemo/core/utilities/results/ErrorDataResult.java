@@ -6,7 +6,7 @@ package com.hm.nLayeredDemo.core.utilities.results;
 
 public class ErrorDataResult<T> extends DataResult {
 
-    public ErrorDataResult(T data, boolean success, String message) {
+    public ErrorDataResult(T data, String message) {
         super(data, false, message);
     }
 
