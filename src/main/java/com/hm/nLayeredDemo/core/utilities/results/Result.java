@@ -1,4 +1,5 @@
 package com.hm.nLayeredDemo.core.utilities.results;
+
 /*
  Uygulamamızda client'lar bir data istediğinde veya gönderdiğinde; datayla birlikte işlem sonucunu ve bir mesajı görmek isteyebilir.
  Bu 3 alanlardan, datanın dönmesi zorunlu değil fakat işlem sonucu ve mesajı zorunlu olarak döndürmemiz gerekir.
@@ -8,6 +9,7 @@ package com.hm.nLayeredDemo.core.utilities.results;
  İlk constructorda success'i set ettiğimiz için 2. constructorda tekrar set etmemize gerek yok. this(success) diyerek yine success' in referansına erişmiş oluyoruz.
 */
 public class Result {
+
     private boolean success;
     private String message;
 
@@ -20,11 +22,12 @@ public class Result {
         this.message = message;
     }
 
-    public boolean isSuccess(){
+    public boolean isSuccess() {
         return this.success;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return this.message;
     }
+
 }

@@ -4,7 +4,7 @@ package com.hm.nLayeredDemo.core.utilities.results;
 // Başarılı işlemlerde direkt bu sınıfımızın constructor metodumuzu kullanma işlemi yapacağız.
 // Bİrden fazla constructor tanımlayarak metodumuzun farklı parametrelere alarak istenilen parametrenin gönderilmesi çeşitlendirilebiliriz.
 
-public class SuccessDataResult<T> extends DataResult {
+public class SuccessDataResult<T> extends DataResult<T> {
 
     public SuccessDataResult(T data, String message) {
         super(data, true, message);
@@ -14,12 +14,12 @@ public class SuccessDataResult<T> extends DataResult {
         super(data, true);
     }
 
-    public SuccessDataResult(String message){
-        super(null,true,message);
+    public SuccessDataResult(String message) {
+        super(null, true, message);
     }
 
-    public SuccessDataResult(){
-        super(null,true);
+    public SuccessDataResult() {
+        super(null, true);
     }
 
 }

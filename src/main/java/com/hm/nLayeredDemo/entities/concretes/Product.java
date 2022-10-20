@@ -15,32 +15,37 @@ import javax.persistence.*;
   GeneratedValue ile id nin 1 er artırılması gerektiğini tanımlıyoruz. Postgresql' de tanımladığımız için GenerationType'nı Identity olarak tanımladık.
   Lombok ile getter setterları ve parametreli parametresiz constructor'ları  arka planda otomatik oluşturma işlemi yaptık
  */
+
 @Data
 @Entity
-@Table(name = "products")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name="products")
+
 public class Product {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "product_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="product_id")
     private int id;
 
-    @Column(name = "category_id")
-    private int categoryId;
+    //@Column(name="category_id")
+    //private int categoryId;
 
-    @Column(name = "product_name")
+    @Column(name="product_name")
     private String productName;
 
-    @Column(name = "unit_price")
+    @Column(name="unit_price")
     private double unitPrice;
 
-    @Column(name = "units_in_stock")
+    @Column(name="units_in_stock")
     private short unitsInStock;
 
-    @Column(name = "quantity_per_unit")
+    @Column(name="quantity_per_unit")
     private String quantityPerUnit;
 
+    @ManyToOne()
+    @JoinColumn(name="category_id")
+    private Category category;
 
 }
