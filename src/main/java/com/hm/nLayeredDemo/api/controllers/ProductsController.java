@@ -17,6 +17,8 @@ import java.util.List;
     @RequestMapping, request yapılacak olan URL adresinin path bilgisini tanımlamaya yarar. Bir URL'den istek geldiği zaman,
        istek atılan URL'in path bilgisi ile RequestMapping içerisinde tanımlanan path bilgisi uyuşuyorsa,
        @RequestMapping tanımlaması yapılan fonksiyon çalışır..
+    @RequestParam clienttan gelecek olan datayı api' nin parametreleri kabul edeceği json formatına dönüştürür.
+
  */
 @RestController
 @RequestMapping("/api/products")

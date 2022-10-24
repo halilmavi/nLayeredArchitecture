@@ -8,14 +8,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-// Product tablosunda her üründe kategori çeşit bilgisi yazar.
-// Yani kategori bilgisi tekrar eder o yüzden kategori tablosunda OneToMany() birden çoka anotasyonunu tanımlıyoruz.
-// Bir kategori ismi tanımlıdır ama bu birden fazla productta kullanılır.
-
+/*
+  Product tablosunda her üründe kategori çeşit bilgisi yazar. Yani kategori bilgisi tekrar eder o yüzden kategori tablosunda OneToMany() birden çoka anotasyonunu tanımlıyoruz.
+    Bir kategori ismi tanımlıdır ama bu birden fazla productta kullanılır.
+  @JsonIgnoreProperties anotasyonu ile Json key değerlerinin gözükmesini engelledik. Bunu recursive(tekrar) eden dataların
+    (Aynı Product nesnesini birden fazla yazdırdığı için) önüne geçmek için bu anotasyonu tanımladık.
+*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="categories")
+@Table(name = "categories")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "products"})
 public class Category {
@@ -24,7 +26,7 @@ public class Category {
     @Column(name = "category_id")
     private int categoryId;
 
-    @Column(name="category_name")
+    @Column(name = "category_name")
     private String categoryName;
 
     @OneToMany(mappedBy = "category")
