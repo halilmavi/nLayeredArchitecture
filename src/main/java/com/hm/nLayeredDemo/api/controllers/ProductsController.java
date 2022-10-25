@@ -38,13 +38,18 @@ public class ProductsController {
 
     //@RequestBody anotasyonu ile client' ın göndereceği datayı json formatına döndürerek veritabanı sınıfımızdaki nesnelerle eşleşme işlemi yapıyor.
     @PostMapping("/add")
-    public Result add(@RequestBody Product product){
+    public Result add(@RequestBody Product product) {
         return this.productService.add(product);
     }
 
     @GetMapping("/getByProductName")
-    public DataResult<Product> getByProductName(@RequestParam String productName){
+    public DataResult<Product> getByProductName(@RequestParam String productName) {
         return this.productService.getByProductName(productName);
+    }
+
+    @GetMapping("/getByProductNameAndCategoryId")
+    public DataResult<Product> getByProductNameAndCategoryId(@RequestParam String productName, @RequestParam int categoryId) {
+        return this.productService.getByProductNameAndCategoryId(productName, categoryId);
     }
 
 }

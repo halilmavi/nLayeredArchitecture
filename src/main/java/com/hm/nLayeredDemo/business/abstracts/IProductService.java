@@ -4,9 +4,14 @@ import com.hm.nLayeredDemo.core.utilities.results.Result;
 import com.hm.nLayeredDemo.entities.concretes.Product;
 import java.util.List;
 
-// Business katmanında projede kullanacak olduğumuz operasyonların(metotlar vs.) imzasını tanımladığımız soyut sınıfımız.
-//
+/*
+ Business katmanında IProductService sınıfında projede kullanacak olduğumuz operasyonların(metotlar vs.) imzasını tanımladığımız soyut sınıfımız.
+ JPA Repository sınıfı yapılandırılmış ayarlar sayesinde bu iş sınıfımızda belirli metot isim kalıplarına uyarak
+ metotlarımızı oluşturabiliriz. Yani metotlar getBy ile başladığımızda bir where koşulu yazılacağını biliyor. Hangi tablo sutun ismi ile işlem yapacaksak ona göre yapılandırırız.
+ Örneğin getByProductNameAndCategoryId metodunun imzası ile ürün ismi ve kategorisinin id' sine göre tetiklenecek olan metodun imzasını tanımladık.
+*/
 public interface IProductService {
+
     DataResult<List<Product>> getAll();
     Result add(Product product);
 
